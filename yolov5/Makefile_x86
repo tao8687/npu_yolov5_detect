@@ -1,0 +1,33 @@
+COMMON_DIR:= ./comm/
+SYSLIBINC += ./lib
+CFLAGS += -I $(SYSLIBINC)
+SYSLIBINC += -I ./include/  -I $(COMMON_DIR)   -I ./syslib/  
+
+COMM_SRC := $(wildcard $(COMMON_DIR)/*.cpp)
+COMM_OBJ := $(COMM_SRC:%.cpp=%.o)
+CC := g++
+SRC  := $(wildcard *.c) 
+OBJ  := $(SRC:%.c=%.o)
+
+LDFLAGS += -L $(SYSLIBINC) 
+LDFLAGS += -lnpu_x86  -lsimulator_x86  -lnpu_alg_x86   -lpthread -lm
+
+CFLAGS += -DLINUX_X86
+
+TARGET := sample_yolov5_model
+
+
+
+
+all:  $(TARGET) $(OBJ) $(NMS_OBJ) $(COMM_OBJ)
+
+$(OBJ): %.o: %.c
+	$(CC) -Wall -c $< -o $@ $(CFLAGS)
+$(COMM_OBJ): %.o:%.cpp
+	$(CC) -Wall -c $< -o $@ $(INC_PATH) $(CFLAGS)
+$(TARGET):  $(COMM_OBJ) $(OBJ) 
+	$(CC) -Wall -o $@ $^ $(CFLAGS) $(LDFLAGS)
+clean:
+	-rm -f $(TARGET)	
+	-rm -f $(OBJ)
+	-rm -f $(COMM_OBJ)

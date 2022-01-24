@@ -1,0 +1,52 @@
+kernel/drivers/video/fbdev/core/cfbfillrect.ko:
+kernel/drivers/video/fbdev/core/cfbcopyarea.ko:
+kernel/drivers/video/fbdev/core/cfbimgblt.ko:
+kernel/drivers/usb/gadget/function/u_ether.ko:
+kernel/drivers/usb/gadget/function/usb_f_ecm.ko: kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/function/usb_f_ecm_subset.ko: kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/function/usb_f_rndis.ko: kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/function/usb_f_mass_storage.ko: kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/function/usb_f_uvc.ko: kernel/drivers/media/v4l2-core/videobuf2-vmalloc.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/legacy/g_ether.ko: kernel/drivers/usb/gadget/function/usb_f_rndis.ko kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/legacy/g_mass_storage.ko: kernel/drivers/usb/gadget/function/usb_f_mass_storage.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/legacy/g_webcam.ko: kernel/drivers/usb/gadget/function/usb_f_uvc.ko kernel/drivers/media/v4l2-core/videobuf2-vmalloc.ko kernel/drivers/usb/gadget/libcomposite.ko
+kernel/drivers/usb/gadget/libcomposite.ko:
+kernel/drivers/media/v4l2-core/videobuf2-vmalloc.ko:
+kernel/drivers/media/common/v4l2-tpg/v4l2-tpg.ko:
+kernel/drivers/media/platform/vivid/vivid.ko: kernel/drivers/video/fbdev/core/cfbfillrect.ko kernel/drivers/video/fbdev/core/cfbimgblt.ko kernel/lib/fonts/font.ko kernel/drivers/media/common/v4l2-tpg/v4l2-tpg.ko kernel/drivers/video/fbdev/core/cfbcopyarea.ko kernel/drivers/media/v4l2-core/videobuf2-vmalloc.ko
+kernel/drivers/watchdog/vc0768_wdt.ko:
+kernel/drivers/watchdog/vc0768_exwdt.ko:
+kernel/sound/soc/codecs/snd-soc-alc5616.ko:
+kernel/sound/soc/codecs/snd-soc-vimicro.ko:
+kernel/lib/fonts/font.ko:
+gpio.ko: vplat.ko
+mptx.ko: vplat.ko
+g_winusb.ko: kernel/drivers/usb/gadget/libcomposite.ko
+vimicro-acodec.ko: kernel/sound/soc/codecs/snd-soc-vimicro.ko
+g_winusb2.ko: kernel/drivers/usb/gadget/libcomposite.ko
+snd-soc-i2s.ko:
+sensor.ko:
+jpu.ko: vplat.ko
+vplat.ko:
+ISP.ko: sensor.ko vreg.ko vbinder.ko vplat.ko
+vc0768-acodec.ko: kernel/sound/soc/codecs/snd-soc-vimicro.ko
+npu.ko: base.ko nmz.ko
+snd-soc-pdm.ko:
+vreg.ko: vplat.ko
+vpss.ko: vbinder.ko vplat.ko
+nvp6158.ko:
+base.ko: nmz.ko
+nmz.ko:
+snd-soc-pcm.ko:
+vfifo.ko:
+usb_f_winusb2.ko: kernel/drivers/usb/gadget/libcomposite.ko
+vbinder.ko:
+tvenc.ko:
+vpu.ko: vplat.ko
+vi_dcvi.ko: vfifo.ko vbinder.ko
+snd-soc-pdm-codec.ko:
+de.ko: tvenc.ko vbinder.ko vplat.ko
+snd-soc-card.ko:
+usb_f_winusb.ko: kernel/drivers/usb/gadget/libcomposite.ko
+snd-soc-pdm-stream.ko:
+vi_sif.ko: sensor.ko vbinder.ko
